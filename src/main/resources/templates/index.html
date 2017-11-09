@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}">...</div>
+
+
+	<div th:if="${message}">
+		<h2 th:text="${message}" />
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<input id="file" type="file" name="file" />
+			<button id="upload" type="submit">上传</button>
+		</form>
+	</div>
+
+	<div>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>图片名</td>
+					<td>MD5</td>
+					<td>大小</td>
+					<td>类型</td>
+					<td>上传日期</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${files.size()} eq 0">
+					<td colspan="3">没有文件信息！！</td>
+				</tr>
+				<tr th:each="file : ${files}">
+					<td th:text="${file.id}"></td>
+					<td><a th:href="${file.id}" th:text="${file.name}" /></td>
+					<td th:text="${file.md5}"></td>
+					<td th:text="${file.size}"></td>
+					<td th:text="${file.contentType}"></td>
+					<td th:text="${file.uploadDate}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	
+	<div th:replace="~{fragments/footer :: footer}">...</div>
+
+</body>
+</html>

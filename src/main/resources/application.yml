@@ -1,0 +1,24 @@
+#启动端口
+server:
+  port: 8088
+#thymeleaf模板
+spring:
+  thymeleaf:
+    #编码
+    encoding: UTF-8
+    #热部署
+    cache: false
+    #模板
+    mode: HTML5
+   
+#文件上传限制
+  http:
+    multipart:
+      max-file-size: 2048KB
+      max-request-size: 2048KB
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: fileService
+      
