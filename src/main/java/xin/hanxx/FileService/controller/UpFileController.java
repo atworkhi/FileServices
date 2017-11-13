@@ -129,7 +129,7 @@ public class UpFileController {
 			returnFile=upFileService.saveFile(up);
 			returnFile.setPath("http://localhost:8088/online/"+up.getId());
 			returnFile.setContent(null);
-			return ResponseEntity.status(HttpStatus.OK).body("http://localhost:8081/online/"+up.getId());
+			return ResponseEntity.status(HttpStatus.OK).body("http://localhost:8088/online/"+up.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
