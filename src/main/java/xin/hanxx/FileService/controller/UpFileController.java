@@ -1,7 +1,6 @@
 package xin.hanxx.FileService.controller;
 
 
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -37,6 +36,7 @@ import xin.hanxx.FileService.utils.MD5Util;
 @Controller
 public class UpFileController {
 
+	
 	@Autowired
 	private UpFileService upFileService;
 	
@@ -47,6 +47,7 @@ public class UpFileController {
 		return "index";
 	}
 
+	
 	/**
 	 * 获取文件片的信息
 	 * @param id
@@ -107,7 +108,9 @@ public class UpFileController {
 			UpFile up=new UpFile(file.getOriginalFilename(), file.getContentType(), file.getSize(), file.getBytes());
 			//设置md5
 			up.setMd5(MD5Util.getMD5(file.getInputStream()));
-			up.setUploadDate(new Date());
+			
+			up.setUploadDate(upFileService.sfDate());
+			
 			upFileService.saveFile(up);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -125,7 +128,8 @@ public class UpFileController {
 		try {
 			UpFile up=new UpFile(file.getOriginalFilename(), file.getContentType(), file.getSize(), file.getBytes());
 			up.setMd5(MD5Util.getMD5(file.getInputStream()));
-			up.setUploadDate(new Date());
+			
+			up.setUploadDate(upFileService.sfDate());
 			returnFile=upFileService.saveFile(up);
 			returnFile.setPath("http://localhost:8088/online/"+up.getId());
 			returnFile.setContent(null);

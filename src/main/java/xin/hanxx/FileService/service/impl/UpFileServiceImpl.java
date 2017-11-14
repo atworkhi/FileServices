@@ -1,5 +1,7 @@
 package xin.hanxx.FileService.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -51,6 +53,16 @@ public class UpFileServiceImpl implements UpFileService {
 		//TODO  
 		return upFileRepository.findAll();
 
+	}
+
+	@Override
+	public String sfDate() {
+		//格式化日期
+		Date date=new Date();
+		SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sfDate=sf.format(date);
+		return sfDate;        
+		    
 	}
 
 }

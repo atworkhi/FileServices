@@ -39,6 +39,12 @@ public interface UpFileService {
 	 * @return
 	 */
 	List<UpFile> listFiles();
+	
+	/**
+	 * 日期格式化
+	 * @return
+	 */
+	String sfDate();
 }
   
     

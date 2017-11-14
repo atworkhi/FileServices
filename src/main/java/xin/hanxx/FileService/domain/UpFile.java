@@ -1,9 +1,7 @@
 package xin.hanxx.FileService.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -33,7 +31,7 @@ public class UpFile implements Serializable{
 	private Long size;
 	//上传日期
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date uploadDate;
+	private String uploadDate;
 	//文件md5
 	private String md5;
 	//文件内容
@@ -91,13 +89,13 @@ public class UpFile implements Serializable{
 	/**  
 	 * @return the uploadDate  
 	 */
-	public Date getUploadDate() {
+	public String getUploadDate() {
 		return uploadDate;
 	}
 	/**  
 	 * @param uploadDate the uploadDate to set  
 	 */
-	public void setUploadDate(Date uploadDate) {
+	public void setUploadDate(String uploadDate) {
 		this.uploadDate = uploadDate;
 	}
 	/**  
