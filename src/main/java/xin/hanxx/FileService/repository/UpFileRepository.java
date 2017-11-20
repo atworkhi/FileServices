@@ -14,6 +14,12 @@ import xin.hanxx.FileService.domain.UpFile;
 
 public interface UpFileRepository extends MongoRepository<UpFile, String>{
 
+	/**
+	 * 根据md5查询
+	 * @param md5
+	 * @return
+	 */
+	UpFile findByMd5(String md5);
 }
   
     

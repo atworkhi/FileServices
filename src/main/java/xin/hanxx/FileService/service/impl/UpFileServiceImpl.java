@@ -65,6 +65,13 @@ public class UpFileServiceImpl implements UpFileService {
 		    
 	}
 
+	@Override
+	public UpFile getFileByMd5(String md5) {
+		//TODO  
+		return upFileRepository.findByMd5(md5);        
+		    
+	}
+
 }
   
     

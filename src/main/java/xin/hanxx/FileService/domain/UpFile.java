@@ -145,11 +145,12 @@ public class UpFile implements Serializable{
 	 * @param size
 	 * @param content  
 	 */ 
-	public UpFile(String name, String contentType, Long size, byte[] content) {
+	public UpFile(String name, String contentType, String md5,Long size, byte[] content) {
 		this.name = name;
 		this.contentType = contentType;
 		this.size = size;
 		this.content = content;
+		this.md5=md5;
 	}
 	
 	@Override

@@ -45,6 +45,11 @@ public interface UpFileService {
 	 * @return
 	 */
 	String sfDate();
+	
+	/**
+	 * 根据MD5查询
+	 */
+	UpFile getFileByMd5(String md5);
 }
   
     
